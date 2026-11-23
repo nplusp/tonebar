@@ -101,7 +101,7 @@ struct PanelView: View {
 
     private var footer: some View {
         HStack {
-            Toggle("Launch at login", isOn: Binding(get: { model.launchesAtLogin }, set: model.setLaunchesAtLogin))
+            Toggle("Launch at login", isOn: Binding(get: { model.launchesAtLogin }, set: { model.setLaunchesAtLogin($0) }))
                 .toggleStyle(.checkbox)
             Spacer()
             Button("Quit") { NSApplication.shared.terminate(nil) }
